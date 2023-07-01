@@ -29,7 +29,7 @@ Void Main::buttonAdd_Click(System::Object^ sender, System::EventArgs^ e) {
 		("Добавлено окружность №" + (i + 1) + " с данными: X:" + data[i].GetX() +
 			" Y: " + data[i].GetY() + " R: " + data[i].GetR());
 		i++; //Счетчик прибавился
-		//TextBox();
+		TextBox();
 	}
 }
 Void Main::buttonDelete_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -52,14 +52,17 @@ Void Main::buttonResult_Click(System::Object^ sender, System::EventArgs^ e) {
 	Result^ form = gcnew Result();               //конструируется оконная форма Result
 	form->Show();//и показывается на экране 
 }
+// Реализация обработки нужных символов в TextBox
 Void Main::dataX_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	if (dataX->Text == "") {
+	if (dataX->Text == "") { //если в тексте пусто
+		//обрабатываются только цифры, минус и backspace
 		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 45) { e->Handled = true; }
 	}
-	else if (dataX->Text == "-") {
+	else if (dataX->Text == "-") {//если записан 1-ый символ "-"
+		//обрабытываюся цифры и backspace
 		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8) { e->Handled = true; }
 	}
-	else
+	else // в остальном обрабатываются цифры, backspace и запятая
 		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 44) { e->Handled = true; }
 }
 Void Main::dataY_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
@@ -73,6 +76,7 @@ Void Main::dataY_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPre
 		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 44) { e->Handled = true; }
 }
 Void Main::dataR_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	//в TextBox со значением R обрабатываюся только цифры и запятая, и backspace
 	if (dataR->Text == "") {
 		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8) { e->Handled = true; }
 	}
@@ -98,9 +102,11 @@ Void Main::dataR_Leave(System::Object^ sender, System::EventArgs^ e) {
 	if (dataR->Text == "") dataR->Text = "0";
 }
 Void Main::Clousebutton_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+	//При наведении курсором на кнопку Х становится красным
 	Clousebutton->BackColor = System::Drawing::Color::Red;
 }
 Void Main::Clousebutton_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+	//При выведении курсора из кнопки Х становится черным
 	Clousebutton->BackColor = System::Drawing::Color::Black;
 }
 Void Main::buttonSave_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -191,8 +197,8 @@ Void Main::MainForm_FormClosed(System::Object^ sender, System::Windows::Forms::F
 	Application::Exit();                                                                                 //  приложение завершается
 }
 Void Main::l3_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	flage = true;//переменная flage становится истиной
-	location = e->Location;
+	flage = true;//переменная flage указывает что мышь нажата и удерживается
+	location = e->Location;// записывается координаты мыши по координатам формы
 }
 Void Main::l3_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 	if (flage) {
@@ -200,19 +206,16 @@ Void Main::l3_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEve
 		Location = Point(screen.X - location.X, screen.Y - location.Y);//и записывается в свойста расположения формы координат мыши
 	}
 }
-Void Main::l3_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
-{
-	flage = false;//переменная flage становится ложью
+Void Main::l3_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	flage = false;//указывает, что кнопку опустили
 }
 
-System::Void Окружность::Main::button1_Click(System::Object^ sender, System::EventArgs^ e)
-{
-	HelpForm^ form = gcnew HelpForm();
+System::Void Окружность::Main::button1_Click(System::Object^ sender, System::EventArgs^ e) {//При нажатии на кнопку ?
+	HelpForm^ form = gcnew HelpForm(); //конструируется
 	form->Show();
 }
 
-System::Void Окружность::Main::timer1_Tick(System::Object^ sender, System::EventArgs^ e)
-{
+System::Void Окружность::Main::timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 	if (i == 10) {                          // Если ввели все 10 окружностей, то  
 		this->buttonResult->Visible = true;//  появляется кнопка Результата
 		this->panel2->Visible = false;    //   и скрываются TextBox'ы
