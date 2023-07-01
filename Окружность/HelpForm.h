@@ -10,19 +10,20 @@ namespace Окружность {
 	using namespace System::Drawing;
 	using namespace System::IO;
 
-	public ref class HelpForm : public System::Windows::Forms::Form
-	{
+	public ref class HelpForm : public System::Windows::Forms::Form {
 	public:
 		HelpForm(void) {
 			InitializeComponent();
+			StreamReader^ file = File::OpenText("Contacts.txt");
+			textBox2->Text = file->ReadToEnd();
+			file = File::OpenText("README.txt");
+			textBox1->Text = file->ReadToEnd();
+			file->Close();
 		}
-
 	protected:
-
 		~HelpForm() {
 			if (components) delete components;	
 		}
-
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::TabControl^ tabControl1;
 	private: System::Windows::Forms::TabPage^ tabPage1;
@@ -144,7 +145,6 @@ namespace Окружность {
 			this->Name = L"HelpForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Справка";
-			this->Shown += gcnew System::EventHandler(this, &HelpForm::HelpForm_Shown);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->tabControl1->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
@@ -156,12 +156,5 @@ namespace Окружность {
 
 		}
 #pragma endregion
-	private: System::Void HelpForm_Shown(System::Object^ sender, System::EventArgs^ e) {
-		StreamReader^ file = File::OpenText("Contacts.txt");
-		textBox2->Text = file->ReadToEnd();
-		file = File::OpenText("README.txt");
-		textBox1->Text = file->ReadToEnd();
-		file->Close();
-	}
 	};
 }

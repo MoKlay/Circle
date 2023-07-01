@@ -29,7 +29,7 @@ Void Main::buttonAdd_Click(System::Object^ sender, System::EventArgs^ e) {
 		("Добавлено окружность №" + (i + 1) + " с данными: X:" + data[i].GetX() +
 			" Y: " + data[i].GetY() + " R: " + data[i].GetR());
 		i++; //Счетчик прибавился
-		TextBox();
+		//TextBox();
 	}
 }
 Void Main::buttonDelete_Click(System::Object^ sender, System::EventArgs^ e) {
