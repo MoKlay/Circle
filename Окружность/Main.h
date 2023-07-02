@@ -580,6 +580,7 @@ namespace Окружность {
 		}
 #pragma endregion
 	private:
+		String^ text = "";
 		void TextBox();
 		void DeleteList();
 		void DeleteList(int i);

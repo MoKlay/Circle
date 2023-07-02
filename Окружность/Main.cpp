@@ -9,6 +9,8 @@ using namespace Fields;
 
 int i = 0; //Количество добавленных окружностей
 bool t = true, f = false, voll = false; 
+bool zet;
+
 
 void Main::TextBox() {
 	dataX->Text = "0";
@@ -78,34 +80,31 @@ Void Main::buttonResult_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 // Реализация обработки нужных символов в TextBox
 Void Main::dataX_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	if (dataX->Text == "") { //если в тексте пусто
-		//обрабатываются только цифры, минус и backspace
-		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 45) { e->Handled = true; }
-	}
-	else if (dataX->Text == "-") {//если записан 1-ый символ "-"
-		//обрабытываюся цифры и backspace
-		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8) { e->Handled = true; }
-	}
-	else // в остальном обрабатываются цифры, backspace и запятая
-		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 44) { e->Handled = true; }
+	char l = e->KeyChar;
+	//запись первых символов: цифры и минус
+	if (dataX->Text == "") { if (!Char::IsDigit(l) && l != 8 && l != 45) e->Handled = true; }
+	//если первый символ минус записывается цифра
+	else if (dataX->Text == "-") { if (!Char::IsDigit(l) && l != 8) e->Handled = true; }
+	//проверка: введенали запятая
+	else if (l == 44 && dataX->Text->IndexOf(44) != -1) { e->Handled = true; }
+	//если запина цифра может записатся запятая
+	else if (!Char::IsDigit(l) && l != 8 && l != 44) { e->Handled = true; }
 }
 Void Main::dataY_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	if (dataY->Text == "") {
-		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 45) { e->Handled = true; }
-	}
-	else if (dataY->Text == "-") {
-		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8) { e->Handled = true; }
-	}
-	else
-		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 44) { e->Handled = true; }
+	char l = e->KeyChar;
+	if (dataY->Text == "") { if (!Char::IsDigit(l) && l != 8 && l != 45) e->Handled = true; }
+	else if (dataY->Text == "-") { if (!Char::IsDigit(l) && l != 8) e->Handled = true; }
+	else if (l == 44 && dataY->Text->IndexOf(44) != -1) { e->Handled = true; }
+	else if (!Char::IsDigit(l) && l != 8 && l != 44) { e->Handled = true; }
+	
 }
 Void Main::dataR_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	char l = e->KeyChar;
 	//в TextBox со значением R обрабатываюся только цифры и запятая, и backspace
-	if (dataR->Text == "") {
-		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8) { e->Handled = true; }
-	}
-	else
-		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 44) { e->Handled = true; }
+	if (dataR->Text == "") { if (!Char::IsDigit(l) && l != 8) e->Handled = true; }
+	else if (l == 44 && dataR->Text->IndexOf(44) != -1) { e->Handled = true; }
+	else if (!Char::IsDigit(l) && l != 8 && l != 44) { e->Handled = true; }
+	
 }
 //при фокусе текстовых полей поле становится пустым
 Void Main::dataX_Enter(System::Object^ sender, System::EventArgs^ e) {
