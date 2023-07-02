@@ -1,13 +1,10 @@
 #pragma once
 #include "Circle.h"
 
-namespace Fields {
+namespace Fields { //пространство имен для общего назначения для всех форм
 	using namespace System::Drawing;
 
-	
-	int t = 0, column = 1, line = 0;
-	Point location, screen;
-	bool flage = false, csv = true;
-	double average = 0, x, y, r;
-	Circle data[10];
+	Point location, screen; //координаты по форме, по экрану
+	bool flage = false, csv = true; //флажки: удерживания кнопки, продолжительность цикла
+	Circle data[10]; // массив из объектов окружностей
 }

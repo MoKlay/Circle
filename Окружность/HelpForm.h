@@ -12,14 +12,7 @@ namespace Окружность {
 
 	public ref class HelpForm : public System::Windows::Forms::Form {
 	public:
-		HelpForm(void) {
-			InitializeComponent();
-			StreamReader^ file = File::OpenText("Contacts.txt");
-			textBox2->Text = file->ReadToEnd();
-			file = File::OpenText("README.txt");
-			textBox1->Text = file->ReadToEnd();
-			file->Close();
-		}
+		HelpForm(void);
 	protected:
 		~HelpForm() {
 			if (components) delete components;	
@@ -153,7 +146,6 @@ namespace Окружность {
 			this->tabPage2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->ResumeLayout(false);
-
 		}
 #pragma endregion
 	};

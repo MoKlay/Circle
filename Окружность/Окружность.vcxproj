@@ -28,6 +28,7 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Result.cpp" />
+    <ClCompile Include="HelpForm.cpp" />
     <ClCompile Include="Start.cpp" />
     <ClCompile Include="Welcome.cpp" />
   </ItemGroup>
@@ -143,7 +144,7 @@
       <AdditionalDependencies />
       <ForceFileOutput>MultiplyDefinedSymbolOnly</ForceFileOutput>
       <EntryPointSymbol>main</EntryPointSymbol>
-      <SubSystem>NotSet</SubSystem>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

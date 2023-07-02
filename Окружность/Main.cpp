@@ -8,47 +8,71 @@ using namespace Окружность;
 using namespace Fields;
 
 int i = 0; //Количество добавленных окружностей
+bool t = true, f = false, voll = false; 
 
 void Main::TextBox() {
 	dataX->Text = "0";
 	dataY->Text = "0";
 	dataR->Text = "0";
 }
+void Main::DeleteList() {
+	listX->Items->Clear();
+	listY->Items->Clear();
+	listR->Items->Clear();
+}
+void Main::DeleteList(int i) {
+	listX->Items->RemoveAt(i);
+	listY->Items->RemoveAt(i);
+	listR->Items->RemoveAt(i);
+}
+
+void Окружность::Main::AddList(float x, float y, float r) {
+	this->listX->Items->Add(x);
+	this->listY->Items->Add(y);
+	this->listR->Items->Add(r);
+}
+
+void Окружность::Main::Visible(bool vis) { 
+	if (vis) {
+		delete_Panel->Visible = t;
+		add->Visible = f;
+		clear->Visible = f;
+		back->Visible = t;
+	}
+	else {
+		delete_Panel->Visible = f;
+		add->Visible = t;
+		clear->Visible = t;
+		back->Visible = f;
+	}
+}
+
 Void Main::Clousebutton_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();
 }
 Void Main::buttonAdd_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (i < 10) {
 		// Конвертация введенных данных в переменную double
-		x = Convert::ToDouble(dataX->Text);
-		y = Convert::ToDouble(dataY->Text);
-		r = Convert::ToDouble(dataR->Text);
-		data[i].Set(x, y, r);// Запись данных в массив объекта
-		this->listBox1->Items->Add("X: " + x + " Y: " + y + " R: " + r); //Добавление в ListBox данных в элемент
-		Console::WriteLine
-		("Добавлено окружность №" + (i + 1) + " с данными: X:" + data[i].GetX() +
-			" Y: " + data[i].GetY() + " R: " + data[i].GetR());
-		i++; //Счетчик прибавился
+		float x = Convert::ToDouble(dataX->Text);
+		float y = Convert::ToDouble(dataY->Text);
+		float r = Convert::ToDouble(dataR->Text);
+		//ограничение по записи значений
+		if (x < 100 && x > -100 && y > -100 && y < 100 && r < 100) {
+			data[i].Set(x, y, r);// Запись данных в массив объекта
+			AddList(x, y, r);//Добавление в ListBox данных в элемент
+			i++; //Счетчик прибавился
+		}
+		else
+			MessageBox::Show(this, "Большое значение!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		TextBox();
 	}
 }
-Void Main::buttonDelete_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (listBox1->SelectedItem) {                                                     //Если в ListBox'е выбран элемент, то 
-		int d = listBox1->SelectedIndex + 1;
-		Console::WriteLine("Удалено окружность №" + d + "\nПерезапись данных");
-		i--;                                                                         //счетчик количества окружностей уменьшается,
-		this->listBox1->Items->Remove(listBox1->SelectedItem);                      //выбранный элемент удаляется,
-		for (int j = listBox1->SelectedIndex; j < i; j++) data[j] = data[j + 1]; //и перезаписываюся данные в массиве обьектов 
-
-	}
-}
 Void Main::buttonDeleteAll_Click(System::Object^ sender, System::EventArgs^ e) {
-	i = 0;                                                                       //счетчик количества окружностей обнуляется
-	this->listBox1->Items->Clear();                                             //ListBox очищается от элементов
-	Console::WriteLine("Все данные удалены");
+	i = 0;//счетчик количества окружностей обнуляется
+	//ListBox очищается от элементов      
+	DeleteList();
 }
 Void Main::buttonResult_Click(System::Object^ sender, System::EventArgs^ e) {
-	Console::WriteLine("Открытие окна 'Результат'");                          //
 	Result^ form = gcnew Result();               //конструируется оконная форма Result
 	form->Show();//и показывается на экране 
 }
@@ -83,6 +107,7 @@ Void Main::dataR_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPre
 	else
 		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 8 && e->KeyChar != 44) { e->Handled = true; }
 }
+//при фокусе текстовых полей поле становится пустым
 Void Main::dataX_Enter(System::Object^ sender, System::EventArgs^ e) {
 	dataX->Text = "";
 }
@@ -92,6 +117,7 @@ Void Main::dataY_Enter(System::Object^ sender, System::EventArgs^ e) {
 Void Main::dataR_Enter(System::Object^ sender, System::EventArgs^ e) {
 	dataR->Text = "";
 }
+//при расфокусировки текстовые поля если оно пустое записывается 0
 Void Main::dataX_Leave(System::Object^ sender, System::EventArgs^ e) {
 	if (dataX->Text == "") dataX->Text = "0";
 }
@@ -103,44 +129,43 @@ Void Main::dataR_Leave(System::Object^ sender, System::EventArgs^ e) {
 }
 Void Main::Clousebutton_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
 	//При наведении курсором на кнопку Х становится красным
-	Clousebutton->BackColor = System::Drawing::Color::Red;
+	close->BackColor = Color::Red;
 }
 Void Main::Clousebutton_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
 	//При выведении курсора из кнопки Х становится черным
-	Clousebutton->BackColor = System::Drawing::Color::Black;
+	close->BackColor = Color::Transparent;
 }
 Void Main::buttonSave_Click(System::Object^ sender, System::EventArgs^ e) {
-	saveFileDialog1->DefaultExt = "csv";                                               //выстовляется по умолчанию формат файла csv
-	saveFileDialog1->Filter = "CSV Файл (*.csv) | *.csv";                             // и в списке форматов добавляется формат файла 
-	if (saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) { //Если в окне сохранения нажали на кнопку ОК, то 
-		StreamWriter^ file = gcnew StreamWriter(saveFileDialog1->FileName, true);   //записывается в указанный путь данные:
-		file->Write("Circle\n");                         //записывается ключ для правельности загрузки формата
-		for (int j = 0; j < i; j++) {                    //и данные
-			String^ X = Convert::ToString(data[j].GetX());
-			String^ Y = Convert::ToString(data[j].GetY());
-			String^ R = Convert::ToString(data[j].GetR());
-			file->Write(X + ";" + Y + ";" + R + ".\n");
+	if (i > 0) {
+		saveFile->DefaultExt = "csv";                                               //выстовляется по умолчанию формат файла csv
+		saveFile->Filter = "CSV Файл (*.csv) | *.csv";                             // и в списке форматов добавляется формат файла 
+		if (saveFile->ShowDialog() == System::Windows::Forms::DialogResult::OK) { //Если в окне сохранения нажали на кнопку ОК, то 
+			StreamWriter^ file = gcnew StreamWriter(saveFile->FileName, true);   //записывается в указанный путь данные:
+			file->Write("Circle.\n");                         //записывается ключ для правельности загрузки формата
+			for (int j = 0; j < i; j++) {                    //и данные
+				String^ X = Convert::ToString(data[j].GetX());
+				String^ Y = Convert::ToString(data[j].GetY());
+				String^ R = Convert::ToString(data[j].GetR());
+				file->Write(X + ";" + Y + ";" + R + ".\n");
+			}
+			file->Close();
+			//После записи открывается диалоговое окно с информацией сохранения
+			MessageBox::Show(this, "Файл сохранен в пути: " + saveFile->FileName, "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		}
-		file->Close();
-		//После записи открывается диалоговое окно с информацией сохранения
-		MessageBox::Show(this, "Файл сохранен в пути: " + saveFileDialog1->FileName, "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
-		Console::WriteLine("Сохранение файла...");
-		Console::WriteLine("Файл сохранен в пути: " + saveFileDialog1->FileName);
 	}
 }
 Void Main::buttonLoad_Click(System::Object^ sender, System::EventArgs^ e) {
-	openFileDialog1->DefaultExt = "csv";                                              //выстовляется по умолчанию формат файла csv
-	openFileDialog1->Filter = "CSV Файл (*.csv) | *.csv";                            // и в списке форматов добавляется формат файла csv
+	openFile->DefaultExt = "csv";                                              //выстовляется по умолчанию формат файла csv
+	openFile->Filter = "CSV Файл (*.csv) | *.csv";                            // и в списке форматов добавляется формат файла csv
 	csv = true;
 	while (csv) {
-		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {//Если в окне сохранения нажали на кнопку ОК, то 
-			StreamReader^ file = File::OpenText(openFileDialog1->FileName);           //открывается в указанном пути файл
-			String^ X = ""; String^ Y = ""; String^ R = "";//создается переменные строки для записи в него чисел       
-			Console::WriteLine("Загрузка файла...\n" + openFileDialog1->FileName);
+		if (openFile->ShowDialog() == System::Windows::Forms::DialogResult::OK) {//Если в окне сохранения нажали на кнопку ОК, то 
+			StreamReader^ file = File::OpenText(openFile->FileName);           //открывается в указанном пути файл
+			String^ X = ""; String^ Y = ""; String^ R = "";//создается переменные строки для записи в него чисел 
+			int column = 1;
 			X = file->ReadLine();
-			if (X == "Circle") { // если прочитал правельный ключ
-				X = "";
-				listBox1->Items->Clear();   i = 0; //ListBox очищается от элементов, очищается счетчик окружностей
+			if (X == "Circle.") { // если прочитал правельный ключ
+				X = ""; DeleteList(); i = 0; //ListBox очищается от элементов, очищается счетчик окружностей
 				while (csv) {
 					int intdata = file->Read(); //считывание по символьно
 					if (intdata != -1) {
@@ -166,35 +191,30 @@ Void Main::buttonLoad_Click(System::Object^ sender, System::EventArgs^ e) {
 						else if (intdata == 59) column++;//Если прочитал ; то следующая переменная строки
 						else if (intdata == 46) { //если встрети точку
 							//Добавляем загруженные данные в ListBox и в массив окружностей
-							x = Convert::ToDouble(X);
-							y = Convert::ToDouble(Y);
-							r = Convert::ToDouble(R);
+							float x = Convert::ToDouble(X);
+							float y = Convert::ToDouble(Y);
+							float r = Convert::ToDouble(R);
 							data[i].Set(x, y, r);
-							Console::WriteLine("X: " + x + " Y: " + y + " R: " + r);
-							this->listBox1->Items->Add("X: " + x + " Y: " + y + " R: " + r);
+							AddList(x, y, r);
 							column = 1; X = ""; Y = ""; R = ""; i++;//переходим на следующую окружность
 						}
 					}
 					else {  //Если поток закончился
 						column = 1;
-						Console::WriteLine("Загрузка выполнена.");
-
 						MessageBox::Show(this, "Файл загружен!", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
 						csv = false; //цикл заканчивается
 					}
 				}
 				file->Close();
 			}
-			else { //иначе выводит окно с ошибкой
-				Console::Write("Ошибка файла!!!");
+			else //иначе выводит окно с ошибкой
 				MessageBox::Show(this, "Неверный файл загрузки!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
-			}
 		}
 		else break;//если же закрыл окно загрузки
 	}
 }
 Void Main::MainForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
-	Application::Exit();                                                                                 //  приложение завершается
+	Application::Exit();                                              //  приложение завершается
 }
 Void Main::l3_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 	flage = true;//переменная flage указывает что мышь нажата и удерживается
@@ -206,22 +226,69 @@ Void Main::l3_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEve
 		Location = Point(screen.X - location.X, screen.Y - location.Y);//и записывается в свойста расположения формы координат мыши
 	}
 }
-Void Main::l3_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	flage = false;//указывает, что кнопку опустили
-}
+Void Main::l3_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) { flage = false; }//указывает, что кнопку опустили
 
 System::Void Окружность::Main::button1_Click(System::Object^ sender, System::EventArgs^ e) {//При нажатии на кнопку ?
 	HelpForm^ form = gcnew HelpForm(); //конструируется
 	form->Show();
 }
 
-System::Void Окружность::Main::timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
+Void Main::timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 	if (i == 10) {                          // Если ввели все 10 окружностей, то  
-		this->buttonResult->Visible = true;//  появляется кнопка Результата
-		this->panel2->Visible = false;    //   и скрываются TextBox'ы
+		this->result->Visible = true;//  появляется кнопка Результата
+		this->data_panel->Visible = false;    //   и скрываются TextBox'ы
 	} 
 	else {
-		this->buttonResult->Visible = false;                                       //кнопка Результата скрывается,
-		this->panel2->Visible = true;                                             //TextBox'ы появляются
+		this->result->Visible = false;      //кнопка Результата скрывается,
+		this->data_panel->Visible = true;    //TextBox'ы появляются
 	}
+}
+
+Void Main::label2_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+	directory->BackColor = Color::White;
+	directory->ForeColor = Color::Black;
+}
+
+Void Main::label2_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+	directory->BackColor = Color::Transparent;
+	directory->ForeColor = SystemColors::Window;
+}
+
+Void Main::deletebutton_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (i > 0) {
+		if (!delete_Panel->Visible) {//если панель с numUpDown не видна
+			Visible(true);//показывает нужные элементы управления
+			index_num->Maximum = i;//в numUpDown ставится мах значение
+		}
+		else {
+			Visible(false);//возвращает кнопки
+			i--;//уменьшает счетчик окружностей
+			int in = Convert::ToInt32(index_num->Value);
+			DeleteList(in - 1);//удаляет элемнт из списков
+			for (int j = in; j < i; j++) data[j] = data[j+1];//перезапись данных
+		}
+	}
+}
+
+Void Main::back_Click(System::Object^ sender, System::EventArgs^ e) {
+	Visible(false);
+}
+
+Void Main::Main_Click(System::Object^ sender, System::EventArgs^ e) {
+	TextBox();
+}
+
+Void Main::label1_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (!voll) { this->WindowState = FormWindowState::Minimized; voll = true; }
+	else this->WindowState = FormWindowState::Normal; voll = false;
+}
+
+System::Void Окружность::Main::label1_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+	label1->BackColor = Color::White;
+	label1->ForeColor = Color::Black;
+}
+
+System::Void Окружность::Main::label1_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+	label1->BackColor = Color::Transparent;
+	label1->ForeColor = SystemColors::Window;
 }

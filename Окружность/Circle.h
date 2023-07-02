@@ -1,19 +1,19 @@
 #pragma once
 class Position {
 protected:
-	double x, y;
+	float x, y;
 public:
-	Position() { x = 0; y = 0; }
-	~Position() {};
+	Position()  { x = 0; y = 0; }
+	~Position() {}
 };
 
 class Circle : public Position {
-	double radius;
+	float radius;
 public:
-	Circle() { radius = 0; Position(); }
-	~Circle() {}
-	void Set(double i, double j, double r) { x = i; y = j; radius = r; }
-	double GetR() { return radius; }
-	double GetX() { return x; }
-	double GetY() { return y; }
+	Circle()                               { radius = 0; Position(); }
+	~Circle()                              {}
+	void Set(float i, float j, float r) { x = i; y = j; radius = r; }
+	float GetR()                          { return radius; }
+	float GetX()                          { return x; }
+	float GetY()                          { return y; }
 };

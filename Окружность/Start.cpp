@@ -8,6 +8,6 @@ using namespace Окружность;
 
 [STAThreadAttribute]
 int main() {
-	Welcome^ form = gcnew Welcome();
-	Application::Run(form);
+	Welcome^ form = gcnew Welcome();//коструируется окно с заставкой
+	Application::Run(form); // и запускает окно
 }

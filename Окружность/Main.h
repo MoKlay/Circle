@@ -21,37 +21,75 @@ namespace Окружность {
 		~Main() {
 			if (components) delete components;
 		}
+	private: System::Windows::Forms::OpenFileDialog^ openFile;
+	protected:
 
-	private: System::Windows::Forms::Panel^ panel2;
+	protected:
+
+	private: System::Windows::Forms::SaveFileDialog^ saveFile;
+	private: System::Windows::Forms::Timer^ timer;
+	protected:
+
+
+	protected:
+
+
+
+	private: System::Windows::Forms::Label^ directory;
+
+	private: System::Windows::Forms::Label^ email;
+	private: System::Windows::Forms::Label^ name;
+	private: System::Windows::Forms::Button^ result;
+	private: System::Windows::Forms::Panel^ data_panel;
+	private: System::Windows::Forms::Label^ RR;
+
+
+
+
+
+	private: System::Windows::Forms::Label^ YY;
+
+
+	private: System::Windows::Forms::Label^ XX;
+
+
+
 	private: System::Windows::Forms::TextBox^ dataR;
 	private: System::Windows::Forms::TextBox^ dataY;
 	private: System::Windows::Forms::TextBox^ dataX;
-	private: System::Windows::Forms::Button^ buttonResult;
-	private: System::Windows::Forms::Button^ buttonLoad;
-	private: System::Windows::Forms::Button^ buttonSave;
-	private: System::Windows::Forms::Button^ buttonDelete;
-	private: System::Windows::Forms::Button^ buttonAdd;
-	private: System::Windows::Forms::ListBox^ listBox1;
-	private: System::Windows::Forms::Button^ Clousebutton;
-	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
-	private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
-	private: System::Windows::Forms::Button^ buttonDeleteAll;
-	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::PictureBox^ logo;
+
+
+	private: System::Windows::Forms::ListBox^ listX;
+	private: System::Windows::Forms::ListBox^ listY;
+	private: System::Windows::Forms::ListBox^ listR;
+	private: System::Windows::Forms::Button^ add;
+
+	private: System::Windows::Forms::Button^ deletebutton;
+
+
+	private: System::Windows::Forms::Button^ clear;
+
+
+	private: System::Windows::Forms::Button^ load;
+
+
+	private: System::Windows::Forms::Button^ save;
+	private: System::Windows::Forms::Panel^ title_Panel;
 
 
 
-	private: System::Windows::Forms::Label^ l3;
-	private: System::Windows::Forms::FlowLayoutPanel^ Flow;
-	private: System::Windows::Forms::Label^ l11;
-	private: System::Windows::Forms::Label^ l12;
-	private: System::Windows::Forms::Label^ l13;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Label^ l1;
-	private: System::Windows::Forms::Label^ l2;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
-	private: System::Windows::Forms::PictureBox^ pictureBox3;
-	private: System::Windows::Forms::Timer^ timer1;
+
+
+	private: System::Windows::Forms::Label^ close;
+	private: System::Windows::Forms::NumericUpDown^ index_num;
+	private: System::Windows::Forms::Panel^ delete_Panel;
+	private: System::Windows::Forms::Label^ index;
+	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
+	private: System::Windows::Forms::Button^ back;
+	private: System::Windows::Forms::Label^ label1;
+
 	private: System::ComponentModel::IContainer^ components;
 
 
@@ -59,323 +97,444 @@ namespace Окружность {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
+			System::Windows::Forms::Label^ title;
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Main::typeid));
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->Clousebutton = (gcnew System::Windows::Forms::Button());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->l1 = (gcnew System::Windows::Forms::Label());
-			this->l2 = (gcnew System::Windows::Forms::Label());
-			this->buttonResult = (gcnew System::Windows::Forms::Button());
-			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
-			this->Flow = (gcnew System::Windows::Forms::FlowLayoutPanel());
-			this->buttonAdd = (gcnew System::Windows::Forms::Button());
-			this->buttonDelete = (gcnew System::Windows::Forms::Button());
-			this->buttonDeleteAll = (gcnew System::Windows::Forms::Button());
-			this->buttonSave = (gcnew System::Windows::Forms::Button());
-			this->buttonLoad = (gcnew System::Windows::Forms::Button());
-			this->panel2 = (gcnew System::Windows::Forms::Panel());
-			this->l11 = (gcnew System::Windows::Forms::Label());
-			this->l12 = (gcnew System::Windows::Forms::Label());
-			this->l13 = (gcnew System::Windows::Forms::Label());
+			this->close = (gcnew System::Windows::Forms::Label());
+			this->openFile = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->saveFile = (gcnew System::Windows::Forms::SaveFileDialog());
+			this->timer = (gcnew System::Windows::Forms::Timer(this->components));
+			this->directory = (gcnew System::Windows::Forms::Label());
+			this->email = (gcnew System::Windows::Forms::Label());
+			this->name = (gcnew System::Windows::Forms::Label());
+			this->result = (gcnew System::Windows::Forms::Button());
+			this->data_panel = (gcnew System::Windows::Forms::Panel());
 			this->dataR = (gcnew System::Windows::Forms::TextBox());
 			this->dataY = (gcnew System::Windows::Forms::TextBox());
 			this->dataX = (gcnew System::Windows::Forms::TextBox());
-			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->l3 = (gcnew System::Windows::Forms::Label());
-			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
-			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
-			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
-			this->panel1->SuspendLayout();
-			this->Flow->SuspendLayout();
-			this->panel2->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->XX = (gcnew System::Windows::Forms::Label());
+			this->YY = (gcnew System::Windows::Forms::Label());
+			this->RR = (gcnew System::Windows::Forms::Label());
+			this->logo = (gcnew System::Windows::Forms::PictureBox());
+			this->listX = (gcnew System::Windows::Forms::ListBox());
+			this->listY = (gcnew System::Windows::Forms::ListBox());
+			this->listR = (gcnew System::Windows::Forms::ListBox());
+			this->title_Panel = (gcnew System::Windows::Forms::Panel());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->add = (gcnew System::Windows::Forms::Button());
+			this->deletebutton = (gcnew System::Windows::Forms::Button());
+			this->clear = (gcnew System::Windows::Forms::Button());
+			this->load = (gcnew System::Windows::Forms::Button());
+			this->save = (gcnew System::Windows::Forms::Button());
+			this->index_num = (gcnew System::Windows::Forms::NumericUpDown());
+			this->delete_Panel = (gcnew System::Windows::Forms::Panel());
+			this->index = (gcnew System::Windows::Forms::Label());
+			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->back = (gcnew System::Windows::Forms::Button());
+			title = (gcnew System::Windows::Forms::Label());
+			this->data_panel->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo))->BeginInit();
+			this->title_Panel->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->index_num))->BeginInit();
+			this->delete_Panel->SuspendLayout();
+			this->flowLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
-			// panel1
+			// title
 			// 
-			this->panel1->BackColor = System::Drawing::Color::Black;
-			this->panel1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panel1.BackgroundImage")));
-			this->panel1->Controls->Add(this->Clousebutton);
-			this->panel1->Controls->Add(this->button1);
-			this->panel1->Controls->Add(this->l1);
-			this->panel1->Controls->Add(this->l2);
-			this->panel1->Controls->Add(this->buttonResult);
-			this->panel1->Controls->Add(this->listBox1);
-			this->panel1->Controls->Add(this->Flow);
-			this->panel1->Controls->Add(this->panel2);
-			this->panel1->Controls->Add(this->pictureBox1);
-			this->panel1->Controls->Add(this->l3);
-			this->panel1->Location = System::Drawing::Point(5, 5);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(330, 270);
-			this->panel1->TabIndex = 0;
+			title->BackColor = System::Drawing::Color::Transparent;
+			title->Font = (gcnew System::Drawing::Font(L"Times New Roman", 20.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			title->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			title->Location = System::Drawing::Point(180, 24);
+			title->Name = L"title";
+			title->Size = System::Drawing::Size(200, 40);
+			title->TabIndex = 73;
+			title->Text = L"Окружность";
+			title->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// Clousebutton
+			// close
 			// 
-			this->Clousebutton->BackColor = System::Drawing::Color::Black;
-			this->Clousebutton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->Clousebutton->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->Clousebutton->Location = System::Drawing::Point(304, 7);
-			this->Clousebutton->Name = L"Clousebutton";
-			this->Clousebutton->Size = System::Drawing::Size(20, 20);
-			this->Clousebutton->TabIndex = 26;
-			this->Clousebutton->Text = L"Х";
-			this->Clousebutton->UseVisualStyleBackColor = false;
-			this->Clousebutton->Click += gcnew System::EventHandler(this, &Main::Clousebutton_Click);
-			this->Clousebutton->MouseEnter += gcnew System::EventHandler(this, &Main::Clousebutton_MouseEnter);
-			this->Clousebutton->MouseLeave += gcnew System::EventHandler(this, &Main::Clousebutton_MouseLeave);
+			this->close->BackColor = System::Drawing::Color::Transparent;
+			this->close->ForeColor = System::Drawing::SystemColors::Window;
+			this->close->Location = System::Drawing::Point(540, 0);
+			this->close->Name = L"close";
+			this->close->Size = System::Drawing::Size(20, 20);
+			this->close->TabIndex = 58;
+			this->close->Text = L"X";
+			this->close->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->close->Click += gcnew System::EventHandler(this, &Main::Clousebutton_Click);
+			this->close->MouseEnter += gcnew System::EventHandler(this, &Main::Clousebutton_MouseEnter);
+			this->close->MouseLeave += gcnew System::EventHandler(this, &Main::Clousebutton_MouseLeave);
 			// 
-			// button1
+			// openFile
 			// 
-			this->button1->BackColor = System::Drawing::Color::Black;
-			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->button1->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->button1->Location = System::Drawing::Point(276, 7);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(20, 20);
-			this->button1->TabIndex = 46;
-			this->button1->Text = L"\?";
-			this->button1->UseVisualStyleBackColor = false;
-			this->button1->Click += gcnew System::EventHandler(this, &Main::button1_Click);
+			this->openFile->FileName = L"openFileDialog1";
 			// 
-			// l1
+			// timer
 			// 
-			this->l1->AutoSize = true;
-			this->l1->BackColor = System::Drawing::Color::Transparent;
-			this->l1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->timer->Enabled = true;
+			this->timer->Tick += gcnew System::EventHandler(this, &Main::timer1_Tick);
+			// 
+			// directory
+			// 
+			this->directory->BackColor = System::Drawing::Color::Transparent;
+			this->directory->ForeColor = System::Drawing::SystemColors::Window;
+			this->directory->Location = System::Drawing::Point(520, 0);
+			this->directory->Name = L"directory";
+			this->directory->Size = System::Drawing::Size(20, 20);
+			this->directory->TabIndex = 59;
+			this->directory->Text = L"\?";
+			this->directory->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->directory->Click += gcnew System::EventHandler(this, &Main::button1_Click);
+			this->directory->MouseEnter += gcnew System::EventHandler(this, &Main::label2_MouseEnter);
+			this->directory->MouseLeave += gcnew System::EventHandler(this, &Main::label2_MouseLeave);
+			// 
+			// email
+			// 
+			this->email->AutoSize = true;
+			this->email->BackColor = System::Drawing::Color::Transparent;
+			this->email->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->l1->ForeColor = System::Drawing::SystemColors::Window;
-			this->l1->Location = System::Drawing::Point(216, 246);
-			this->l1->Name = L"l1";
-			this->l1->Size = System::Drawing::Size(108, 14);
-			this->l1->TabIndex = 43;
-			this->l1->Text = L"umdari68@gmail.com\r\n";
+			this->email->ForeColor = System::Drawing::SystemColors::Window;
+			this->email->Location = System::Drawing::Point(442, 336);
+			this->email->Name = L"email";
+			this->email->Size = System::Drawing::Size(113, 14);
+			this->email->TabIndex = 55;
+			this->email->Text = L"umdari68@gmail.com\r\n";
 			// 
-			// l2
+			// name
 			// 
-			this->l2->AutoSize = true;
-			this->l2->BackColor = System::Drawing::Color::Transparent;
-			this->l2->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->name->AutoSize = true;
+			this->name->BackColor = System::Drawing::Color::Transparent;
+			this->name->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->l2->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->l2->Location = System::Drawing::Point(6, 246);
-			this->l2->Name = L"l2";
-			this->l2->Size = System::Drawing::Size(89, 14);
-			this->l2->TabIndex = 42;
-			this->l2->Text = L"Цыренов Чингис";
+			this->name->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->name->Location = System::Drawing::Point(10, 336);
+			this->name->Name = L"name";
+			this->name->Size = System::Drawing::Size(88, 14);
+			this->name->TabIndex = 54;
+			this->name->Text = L"Цыренов Чингис";
 			// 
-			// buttonResult
+			// result
 			// 
-			this->buttonResult->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->buttonResult->Location = System::Drawing::Point(19, 211);
-			this->buttonResult->Name = L"buttonResult";
-			this->buttonResult->Size = System::Drawing::Size(300, 20);
-			this->buttonResult->TabIndex = 33;
-			this->buttonResult->Text = L"Результат";
-			this->buttonResult->UseVisualStyleBackColor = false;
-			this->buttonResult->Visible = false;
-			this->buttonResult->Click += gcnew System::EventHandler(this, &Main::buttonResult_Click);
+			this->result->BackColor = System::Drawing::Color::Transparent;
+			this->result->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->result->Location = System::Drawing::Point(130, 324);
+			this->result->Name = L"result";
+			this->result->Size = System::Drawing::Size(300, 26);
+			this->result->TabIndex = 51;
+			this->result->TabStop = false;
+			this->result->Text = L"Результат";
+			this->result->UseVisualStyleBackColor = false;
+			this->result->Visible = false;
+			this->result->Click += gcnew System::EventHandler(this, &Main::buttonResult_Click);
 			// 
-			// listBox1
+			// data_panel
 			// 
-			this->listBox1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->listBox1->FormattingEnabled = true;
-			this->listBox1->ItemHeight = 14;
-			this->listBox1->Location = System::Drawing::Point(19, 49);
-			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(212, 144);
-			this->listBox1->TabIndex = 27;
-			// 
-			// Flow
-			// 
-			this->Flow->BackColor = System::Drawing::Color::Transparent;
-			this->Flow->Controls->Add(this->buttonAdd);
-			this->Flow->Controls->Add(this->buttonDelete);
-			this->Flow->Controls->Add(this->buttonDeleteAll);
-			this->Flow->Controls->Add(this->buttonSave);
-			this->Flow->Controls->Add(this->buttonLoad);
-			this->Flow->Location = System::Drawing::Point(231, 44);
-			this->Flow->Margin = System::Windows::Forms::Padding(2, 0, 2, 2);
-			this->Flow->Name = L"Flow";
-			this->Flow->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->Flow->Size = System::Drawing::Size(93, 153);
-			this->Flow->TabIndex = 45;
-			// 
-			// buttonAdd
-			// 
-			this->buttonAdd->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->buttonAdd->Location = System::Drawing::Point(3, 3);
-			this->buttonAdd->Name = L"buttonAdd";
-			this->buttonAdd->Size = System::Drawing::Size(85, 25);
-			this->buttonAdd->TabIndex = 28;
-			this->buttonAdd->Text = L"Добавить";
-			this->buttonAdd->UseVisualStyleBackColor = false;
-			this->buttonAdd->Click += gcnew System::EventHandler(this, &Main::buttonAdd_Click);
-			// 
-			// buttonDelete
-			// 
-			this->buttonDelete->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->buttonDelete->Location = System::Drawing::Point(3, 34);
-			this->buttonDelete->Name = L"buttonDelete";
-			this->buttonDelete->Size = System::Drawing::Size(85, 25);
-			this->buttonDelete->TabIndex = 30;
-			this->buttonDelete->Text = L"Удалить";
-			this->buttonDelete->UseVisualStyleBackColor = false;
-			this->buttonDelete->Click += gcnew System::EventHandler(this, &Main::buttonDelete_Click);
-			// 
-			// buttonDeleteAll
-			// 
-			this->buttonDeleteAll->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->buttonDeleteAll->Location = System::Drawing::Point(3, 65);
-			this->buttonDeleteAll->Name = L"buttonDeleteAll";
-			this->buttonDeleteAll->Size = System::Drawing::Size(85, 25);
-			this->buttonDeleteAll->TabIndex = 44;
-			this->buttonDeleteAll->Text = L"Удалить все";
-			this->buttonDeleteAll->UseVisualStyleBackColor = false;
-			this->buttonDeleteAll->Click += gcnew System::EventHandler(this, &Main::buttonDeleteAll_Click);
-			// 
-			// buttonSave
-			// 
-			this->buttonSave->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->buttonSave->Location = System::Drawing::Point(3, 96);
-			this->buttonSave->Name = L"buttonSave";
-			this->buttonSave->Size = System::Drawing::Size(85, 25);
-			this->buttonSave->TabIndex = 31;
-			this->buttonSave->Text = L"Сохранить";
-			this->buttonSave->UseVisualStyleBackColor = false;
-			this->buttonSave->Click += gcnew System::EventHandler(this, &Main::buttonSave_Click);
-			// 
-			// buttonLoad
-			// 
-			this->buttonLoad->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->buttonLoad->Location = System::Drawing::Point(3, 127);
-			this->buttonLoad->Name = L"buttonLoad";
-			this->buttonLoad->Size = System::Drawing::Size(85, 25);
-			this->buttonLoad->TabIndex = 32;
-			this->buttonLoad->Text = L"Загрузить";
-			this->buttonLoad->UseVisualStyleBackColor = false;
-			this->buttonLoad->Click += gcnew System::EventHandler(this, &Main::buttonLoad_Click);
-			// 
-			// panel2
-			// 
-			this->panel2->Controls->Add(this->l11);
-			this->panel2->Controls->Add(this->l12);
-			this->panel2->Controls->Add(this->l13);
-			this->panel2->Controls->Add(this->dataR);
-			this->panel2->Controls->Add(this->dataY);
-			this->panel2->Controls->Add(this->dataX);
-			this->panel2->Controls->Add(this->pictureBox3);
-			this->panel2->Location = System::Drawing::Point(31, 199);
-			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(270, 40);
-			this->panel2->TabIndex = 41;
-			// 
-			// l11
-			// 
-			this->l11->AutoSize = true;
-			this->l11->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->l11->Location = System::Drawing::Point(203, 2);
-			this->l11->Name = L"l11";
-			this->l11->Size = System::Drawing::Size(15, 13);
-			this->l11->TabIndex = 46;
-			this->l11->Text = L"R";
-			// 
-			// l12
-			// 
-			this->l12->AutoSize = true;
-			this->l12->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->l12->Location = System::Drawing::Point(130, 2);
-			this->l12->Name = L"l12";
-			this->l12->Size = System::Drawing::Size(14, 13);
-			this->l12->TabIndex = 45;
-			this->l12->Text = L"Y";
-			// 
-			// l13
-			// 
-			this->l13->AutoSize = true;
-			this->l13->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->l13->Location = System::Drawing::Point(50, 2);
-			this->l13->Name = L"l13";
-			this->l13->Size = System::Drawing::Size(14, 13);
-			this->l13->TabIndex = 44;
-			this->l13->Text = L"X";
+			this->data_panel->BackColor = System::Drawing::Color::Transparent;
+			this->data_panel->Controls->Add(this->dataR);
+			this->data_panel->Controls->Add(this->dataY);
+			this->data_panel->Controls->Add(this->dataX);
+			this->data_panel->Controls->Add(this->XX);
+			this->data_panel->Controls->Add(this->YY);
+			this->data_panel->Controls->Add(this->RR);
+			this->data_panel->Location = System::Drawing::Point(130, 267);
+			this->data_panel->Name = L"data_panel";
+			this->data_panel->Size = System::Drawing::Size(300, 40);
+			this->data_panel->TabIndex = 53;
 			// 
 			// dataR
 			// 
-			this->dataR->Location = System::Drawing::Point(177, 19);
+			this->dataR->Location = System::Drawing::Point(210, 20);
 			this->dataR->Name = L"dataR";
-			this->dataR->Size = System::Drawing::Size(61, 20);
+			this->dataR->Size = System::Drawing::Size(90, 20);
 			this->dataR->TabIndex = 43;
+			this->dataR->TabStop = false;
 			this->dataR->Enter += gcnew System::EventHandler(this, &Main::dataR_Enter);
 			this->dataR->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Main::dataR_KeyPress);
 			this->dataR->Leave += gcnew System::EventHandler(this, &Main::dataR_Leave);
 			// 
 			// dataY
 			// 
-			this->dataY->Location = System::Drawing::Point(105, 19);
+			this->dataY->Location = System::Drawing::Point(105, 21);
 			this->dataY->Name = L"dataY";
-			this->dataY->Size = System::Drawing::Size(61, 20);
+			this->dataY->Size = System::Drawing::Size(90, 20);
 			this->dataY->TabIndex = 42;
+			this->dataY->TabStop = false;
 			this->dataY->Enter += gcnew System::EventHandler(this, &Main::dataY_Enter);
 			this->dataY->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Main::dataY_KeyPress);
 			this->dataY->Leave += gcnew System::EventHandler(this, &Main::dataY_Leave);
 			// 
 			// dataX
 			// 
-			this->dataX->Location = System::Drawing::Point(32, 19);
+			this->dataX->Location = System::Drawing::Point(0, 20);
 			this->dataX->Name = L"dataX";
-			this->dataX->Size = System::Drawing::Size(61, 20);
+			this->dataX->Size = System::Drawing::Size(90, 20);
 			this->dataX->TabIndex = 41;
+			this->dataX->TabStop = false;
 			this->dataX->Enter += gcnew System::EventHandler(this, &Main::dataX_Enter);
 			this->dataX->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Main::dataX_KeyPress);
 			this->dataX->Leave += gcnew System::EventHandler(this, &Main::dataX_Leave);
 			// 
-			// pictureBox3
+			// XX
 			// 
-			this->pictureBox3->BackColor = System::Drawing::Color::Transparent;
-			this->pictureBox3->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
-			this->pictureBox3->Location = System::Drawing::Point(0, 0);
-			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(270, 40);
-			this->pictureBox3->TabIndex = 47;
-			this->pictureBox3->TabStop = false;
-			// 
-			// pictureBox1
-			// 
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(3, 0);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(51, 51);
-			this->pictureBox1->TabIndex = 47;
-			this->pictureBox1->TabStop = false;
-			// 
-			// l3
-			// 
-			this->l3->BackColor = System::Drawing::Color::Black;
-			this->l3->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->XX->AutoSize = true;
+			this->XX->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->l3->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->l3->Location = System::Drawing::Point(7, 7);
-			this->l3->Name = L"l3";
-			this->l3->Size = System::Drawing::Size(317, 37);
-			this->l3->TabIndex = 34;
-			this->l3->Text = L"         Окружность";
-			this->l3->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &Main::l3_MouseDown);
-			this->l3->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &Main::l3_MouseMove);
-			this->l3->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &Main::l3_MouseUp);
+			this->XX->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->XX->Location = System::Drawing::Point(38, 5);
+			this->XX->Name = L"XX";
+			this->XX->Size = System::Drawing::Size(14, 13);
+			this->XX->TabIndex = 44;
+			this->XX->Text = L"X";
 			// 
-			// openFileDialog1
+			// YY
 			// 
-			this->openFileDialog1->FileName = L"openFileDialog1";
+			this->YY->AutoSize = true;
+			this->YY->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->YY->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->YY->Location = System::Drawing::Point(143, 5);
+			this->YY->Name = L"YY";
+			this->YY->Size = System::Drawing::Size(15, 13);
+			this->YY->TabIndex = 45;
+			this->YY->Text = L"Y";
 			// 
-			// timer1
+			// RR
 			// 
-			this->timer1->Enabled = true;
-			this->timer1->Tick += gcnew System::EventHandler(this, &Main::timer1_Tick);
+			this->RR->AutoSize = true;
+			this->RR->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->RR->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->RR->Location = System::Drawing::Point(248, 5);
+			this->RR->Name = L"RR";
+			this->RR->Size = System::Drawing::Size(15, 13);
+			this->RR->TabIndex = 46;
+			this->RR->Text = L"R";
+			// 
+			// logo
+			// 
+			this->logo->BackColor = System::Drawing::Color::Transparent;
+			this->logo->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logo.Image")));
+			this->logo->Location = System::Drawing::Point(0, 0);
+			this->logo->Name = L"logo";
+			this->logo->Size = System::Drawing::Size(50, 50);
+			this->logo->TabIndex = 60;
+			this->logo->TabStop = false;
+			// 
+			// listX
+			// 
+			this->listX->Enabled = false;
+			this->listX->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->listX->FormattingEnabled = true;
+			this->listX->ItemHeight = 15;
+			this->listX->Location = System::Drawing::Point(125, 67);
+			this->listX->Name = L"listX";
+			this->listX->Size = System::Drawing::Size(100, 199);
+			this->listX->TabIndex = 62;
+			this->listX->TabStop = false;
+			this->listX->UseTabStops = false;
+			// 
+			// listY
+			// 
+			this->listY->Enabled = false;
+			this->listY->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->listY->FormattingEnabled = true;
+			this->listY->ItemHeight = 15;
+			this->listY->Location = System::Drawing::Point(230, 67);
+			this->listY->Name = L"listY";
+			this->listY->Size = System::Drawing::Size(100, 199);
+			this->listY->TabIndex = 63;
+			this->listY->TabStop = false;
+			// 
+			// listR
+			// 
+			this->listR->Enabled = false;
+			this->listR->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->listR->FormattingEnabled = true;
+			this->listR->ItemHeight = 15;
+			this->listR->Location = System::Drawing::Point(335, 67);
+			this->listR->Name = L"listR";
+			this->listR->Size = System::Drawing::Size(100, 199);
+			this->listR->TabIndex = 64;
+			this->listR->TabStop = false;
+			// 
+			// title_Panel
+			// 
+			this->title_Panel->BackColor = System::Drawing::Color::Transparent;
+			this->title_Panel->Controls->Add(this->label1);
+			this->title_Panel->Controls->Add(this->close);
+			this->title_Panel->Controls->Add(this->directory);
+			this->title_Panel->Location = System::Drawing::Point(0, 0);
+			this->title_Panel->Name = L"title_Panel";
+			this->title_Panel->Size = System::Drawing::Size(560, 50);
+			this->title_Panel->TabIndex = 65;
+			this->title_Panel->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &Main::l3_MouseDown);
+			this->title_Panel->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &Main::l3_MouseMove);
+			this->title_Panel->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &Main::l3_MouseUp);
+			// 
+			// label1
+			// 
+			this->label1->BackColor = System::Drawing::Color::Transparent;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Constantia", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label1->ForeColor = System::Drawing::SystemColors::Window;
+			this->label1->Location = System::Drawing::Point(500, 0);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(20, 20);
+			this->label1->TabIndex = 60;
+			this->label1->Text = L"---";
+			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->label1->Click += gcnew System::EventHandler(this, &Main::label1_Click);
+			this->label1->MouseEnter += gcnew System::EventHandler(this, &Main::label1_MouseEnter);
+			this->label1->MouseLeave += gcnew System::EventHandler(this, &Main::label1_MouseLeave);
+			// 
+			// add
+			// 
+			this->add->BackColor = System::Drawing::Color::Transparent;
+			this->add->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->add->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->add->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->add->Location = System::Drawing::Point(3, 3);
+			this->add->Name = L"add";
+			this->add->Size = System::Drawing::Size(92, 29);
+			this->add->TabIndex = 69;
+			this->add->Text = L"Добавить";
+			this->add->TextImageRelation = System::Windows::Forms::TextImageRelation::TextAboveImage;
+			this->add->UseVisualStyleBackColor = false;
+			this->add->Click += gcnew System::EventHandler(this, &Main::buttonAdd_Click);
+			// 
+			// deletebutton
+			// 
+			this->deletebutton->AutoSize = true;
+			this->deletebutton->BackColor = System::Drawing::Color::Transparent;
+			this->deletebutton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->deletebutton->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->deletebutton->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->deletebutton->Location = System::Drawing::Point(3, 38);
+			this->deletebutton->Name = L"deletebutton";
+			this->deletebutton->Size = System::Drawing::Size(92, 29);
+			this->deletebutton->TabIndex = 70;
+			this->deletebutton->Text = L"Удалить";
+			this->deletebutton->TextImageRelation = System::Windows::Forms::TextImageRelation::TextAboveImage;
+			this->deletebutton->UseVisualStyleBackColor = false;
+			this->deletebutton->Click += gcnew System::EventHandler(this, &Main::deletebutton_Click);
+			// 
+			// clear
+			// 
+			this->clear->AutoSize = true;
+			this->clear->BackColor = System::Drawing::Color::Transparent;
+			this->clear->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->clear->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->clear->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->clear->Location = System::Drawing::Point(3, 114);
+			this->clear->Name = L"clear";
+			this->clear->Size = System::Drawing::Size(95, 29);
+			this->clear->TabIndex = 71;
+			this->clear->Text = L"Очистить";
+			this->clear->TextImageRelation = System::Windows::Forms::TextImageRelation::TextAboveImage;
+			this->clear->UseVisualStyleBackColor = false;
+			this->clear->Click += gcnew System::EventHandler(this, &Main::buttonDeleteAll_Click);
+			// 
+			// load
+			// 
+			this->load->BackColor = System::Drawing::Color::Transparent;
+			this->load->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->load->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->load->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->load->Location = System::Drawing::Point(450, 67);
+			this->load->Name = L"load";
+			this->load->Size = System::Drawing::Size(100, 29);
+			this->load->TabIndex = 74;
+			this->load->Text = L"Открыть";
+			this->load->TextImageRelation = System::Windows::Forms::TextImageRelation::TextAboveImage;
+			this->load->UseVisualStyleBackColor = false;
+			this->load->Click += gcnew System::EventHandler(this, &Main::buttonLoad_Click);
+			// 
+			// save
+			// 
+			this->save->BackColor = System::Drawing::Color::Transparent;
+			this->save->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->save->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->save->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->save->Location = System::Drawing::Point(450, 102);
+			this->save->Name = L"save";
+			this->save->Size = System::Drawing::Size(100, 29);
+			this->save->TabIndex = 75;
+			this->save->Text = L"Сохранить";
+			this->save->TextImageRelation = System::Windows::Forms::TextImageRelation::TextAboveImage;
+			this->save->UseVisualStyleBackColor = false;
+			this->save->Click += gcnew System::EventHandler(this, &Main::buttonSave_Click);
+			// 
+			// index_num
+			// 
+			this->index_num->Location = System::Drawing::Point(0, 16);
+			this->index_num->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
+			this->index_num->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->index_num->Name = L"index_num";
+			this->index_num->Size = System::Drawing::Size(100, 20);
+			this->index_num->TabIndex = 76;
+			this->index_num->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			// 
+			// delete_Panel
+			// 
+			this->delete_Panel->BackColor = System::Drawing::Color::Transparent;
+			this->delete_Panel->Controls->Add(this->index);
+			this->delete_Panel->Controls->Add(this->index_num);
+			this->delete_Panel->Location = System::Drawing::Point(3, 73);
+			this->delete_Panel->Name = L"delete_Panel";
+			this->delete_Panel->Size = System::Drawing::Size(100, 35);
+			this->delete_Panel->TabIndex = 77;
+			this->delete_Panel->Visible = false;
+			// 
+			// index
+			// 
+			this->index->AutoSize = true;
+			this->index->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->index->Location = System::Drawing::Point(0, 0);
+			this->index->Name = L"index";
+			this->index->Size = System::Drawing::Size(95, 13);
+			this->index->TabIndex = 77;
+			this->index->Text = L"Индекс удаления";
+			// 
+			// flowLayoutPanel1
+			// 
+			this->flowLayoutPanel1->BackColor = System::Drawing::Color::Transparent;
+			this->flowLayoutPanel1->Controls->Add(this->add);
+			this->flowLayoutPanel1->Controls->Add(this->deletebutton);
+			this->flowLayoutPanel1->Controls->Add(this->delete_Panel);
+			this->flowLayoutPanel1->Controls->Add(this->clear);
+			this->flowLayoutPanel1->Controls->Add(this->back);
+			this->flowLayoutPanel1->Location = System::Drawing::Point(12, 67);
+			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
+			this->flowLayoutPanel1->Size = System::Drawing::Size(107, 218);
+			this->flowLayoutPanel1->TabIndex = 78;
+			// 
+			// back
+			// 
+			this->back->AutoSize = true;
+			this->back->BackColor = System::Drawing::Color::Transparent;
+			this->back->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->back->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->back->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->back->Location = System::Drawing::Point(3, 149);
+			this->back->Name = L"back";
+			this->back->Size = System::Drawing::Size(95, 29);
+			this->back->TabIndex = 72;
+			this->back->Text = L"Отмена";
+			this->back->TextImageRelation = System::Windows::Forms::TextImageRelation::TextAboveImage;
+			this->back->UseVisualStyleBackColor = false;
+			this->back->Visible = false;
+			this->back->Click += gcnew System::EventHandler(this, &Main::back_Click);
 			// 
 			// Main
 			// 
@@ -383,61 +542,79 @@ namespace Окружность {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->ClientSize = System::Drawing::Size(341, 281);
-			this->Controls->Add(this->panel1);
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->ClientSize = System::Drawing::Size(560, 360);
+			this->Controls->Add(this->flowLayoutPanel1);
+			this->Controls->Add(this->save);
+			this->Controls->Add(this->load);
+			this->Controls->Add(this->listR);
+			this->Controls->Add(this->listY);
+			this->Controls->Add(this->listX);
+			this->Controls->Add(this->logo);
+			this->Controls->Add(this->email);
+			this->Controls->Add(this->name);
+			this->Controls->Add(this->result);
+			this->Controls->Add(this->data_panel);
+			this->Controls->Add(title);
+			this->Controls->Add(this->title_Panel);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"Main";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Окружность";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &Main::MainForm_FormClosed);
-			this->panel1->ResumeLayout(false);
-			this->panel1->PerformLayout();
-			this->Flow->ResumeLayout(false);
-			this->panel2->ResumeLayout(false);
-			this->panel2->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->Click += gcnew System::EventHandler(this, &Main::Main_Click);
+			this->data_panel->ResumeLayout(false);
+			this->data_panel->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo))->EndInit();
+			this->title_Panel->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->index_num))->EndInit();
+			this->delete_Panel->ResumeLayout(false);
+			this->delete_Panel->PerformLayout();
+			this->flowLayoutPanel1->ResumeLayout(false);
+			this->flowLayoutPanel1->PerformLayout();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
-		private:
-			//Функции
-			void TextBox(); // При создании формы в TextBox'ах автоматически вводятся нули}
-			//buttonClick
-			System::Void Clousebutton_Click(System::Object^ sender, System::EventArgs^ e);//При нажатии кнопки Х завершается полность приложение
-			System::Void buttonAdd_Click(System::Object^ sender, System::EventArgs^ e);
-			System::Void buttonDelete_Click(System::Object^ sender, System::EventArgs^ e); //При нажатии кнопки Удалить
-			System::Void buttonDeleteAll_Click(System::Object^ sender, System::EventArgs^ e);
-			System::Void buttonResult_Click(System::Object^ sender, System::EventArgs^ e); // При нажатии кнопки Результат
-			//listboxKeyPress При записи данных в TextBox'ы обрабатываются только цыфры, запятая и кнопка Backspace
-			System::Void dataX_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
-			System::Void dataY_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
-			System::Void dataR_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
-			//dataEnterLeave При фокусе на TextBox'е текст становится пустым. 
-			System::Void dataX_Enter(System::Object^ sender, System::EventArgs^ e);
-			System::Void dataY_Enter(System::Object^ sender, System::EventArgs^ e);
-			System::Void dataR_Enter(System::Object^ sender, System::EventArgs^ e);
-			//Если же текст пустой в TextBox'ах при расфокусировке, то в текст записывается ноль
-			System::Void dataX_Leave(System::Object^ sender, System::EventArgs^ e);
-			System::Void dataY_Leave(System::Object^ sender, System::EventArgs^ e);
-			System::Void dataR_Leave(System::Object^ sender, System::EventArgs^ e);
-			//buttonCloseEnterLeave При наведенни на кнопку Х кнопка меняет цвет
-			System::Void Clousebutton_MouseEnter(System::Object^ sender, System::EventArgs^ e);
-			System::Void Clousebutton_MouseLeave(System::Object^ sender, System::EventArgs^ e);
-			//SaveLoad
-			System::Void buttonSave_Click(System::Object^ sender, System::EventArgs^ e);           // При нажатии на кнопку сохранить
-			System::Void buttonLoad_Click(System::Object^ sender, System::EventArgs^ e); //При нажатии на кнопку Загрузить
-			//CloseForm
-			System::Void MainForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e);// При закрытии формы приложение завершается
-			//Реализация перетаскивания формы по экрану// При нажатии на кнопку мыши
-			System::Void l3_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
-			//При помощи события, который выполняется наведение мыши на элемент
-			System::Void l3_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
-			// При отпускании кнопки мыши
-			System::Void l3_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
-			System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
-			System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e);	
+	private:
+		void TextBox();
+		void DeleteList();
+		void DeleteList(int i);
+		void AddList(float i, float j, float k);
+		void Visible(bool vis);
+		System::Void Clousebutton_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void buttonAdd_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void buttonDeleteAll_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void buttonResult_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void dataX_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
+		System::Void dataY_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
+		System::Void dataR_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
+		System::Void dataX_Enter(System::Object^ sender, System::EventArgs^ e);
+		System::Void dataY_Enter(System::Object^ sender, System::EventArgs^ e);
+		System::Void dataR_Enter(System::Object^ sender, System::EventArgs^ e);
+		System::Void dataX_Leave(System::Object^ sender, System::EventArgs^ e);
+		System::Void dataY_Leave(System::Object^ sender, System::EventArgs^ e);
+		System::Void dataR_Leave(System::Object^ sender, System::EventArgs^ e);
+		System::Void Clousebutton_MouseEnter(System::Object^ sender, System::EventArgs^ e);
+		System::Void Clousebutton_MouseLeave(System::Object^ sender, System::EventArgs^ e);
+		System::Void buttonSave_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void buttonLoad_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void MainForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e);
+		System::Void l3_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+		System::Void l3_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+		System::Void l3_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+		System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e);
+		System::Void label2_MouseEnter(System::Object^ sender, System::EventArgs^ e);
+		System::Void label2_MouseLeave(System::Object^ sender, System::EventArgs^ e);
+		System::Void deletebutton_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void back_Click(System::Object^ sender, System::EventArgs^ e);
+        System::Void Main_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void label1_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void label1_MouseEnter(System::Object^ sender, System::EventArgs^ e);
+        System::Void label1_MouseLeave(System::Object^ sender, System::EventArgs^ e);
 };
 }
