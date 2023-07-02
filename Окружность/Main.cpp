@@ -80,7 +80,7 @@ Void Main::buttonResult_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 // Реализация обработки нужных символов в TextBox
 Void Main::dataX_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	char l = e->KeyChar;
+    wchar_t l = e->KeyChar;
 	//запись первых символов: цифры и минус
 	if (dataX->Text == "") { if (!Char::IsDigit(l) && l != 8 && l != 45) e->Handled = true; }
 	//если первый символ минус записывается цифра
@@ -91,7 +91,7 @@ Void Main::dataX_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPre
 	else if (!Char::IsDigit(l) && l != 8 && l != 44) { e->Handled = true; }
 }
 Void Main::dataY_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	char l = e->KeyChar;
+	wchar_t l = e->KeyChar;
 	if (dataY->Text == "") { if (!Char::IsDigit(l) && l != 8 && l != 45) e->Handled = true; }
 	else if (dataY->Text == "-") { if (!Char::IsDigit(l) && l != 8) e->Handled = true; }
 	else if (l == 44 && dataY->Text->IndexOf(44) != -1) { e->Handled = true; }
@@ -99,7 +99,7 @@ Void Main::dataY_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPre
 	
 }
 Void Main::dataR_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	char l = e->KeyChar;
+	wchar_t l = e->KeyChar;
 	//в TextBox со значением R обрабатываюся только цифры и запятая, и backspace
 	if (dataR->Text == "") { if (!Char::IsDigit(l) && l != 8) e->Handled = true; }
 	else if (l == 44 && dataR->Text->IndexOf(44) != -1) { e->Handled = true; }
