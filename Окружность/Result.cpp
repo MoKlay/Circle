@@ -1,6 +1,8 @@
 #include "Result.h"
 #include "Fields.h"
 
+#define end "/r/n"
+
 using namespace System;
 using namespace Окружность;
 using namespace Fields;
@@ -9,18 +11,11 @@ Void Result::Result_Shown(System::Object^ sender, System::EventArgs^ e) { //При 
 	float average = 0;
 	for (auto c : data) { average += c.GetR(); }                        //прибовляются все радиусы окружностей
 	average /= 10;                                                     // и делится на их количество
-	//в файл записываются резльтаты
-	StreamWriter^ file = gcnew StreamWriter("Text.txt"); 
-	file->Write("Среднее значение радиуса: " + Convert::ToString(average) + "\r\n");
-		file->Write("Координаты окружностей, у которых радиус больше среднего:\r\n");
+	text_editor->Text = "Среднее значение радиуса: " + Convert::ToString(average) + end;
+	text_editor->Text = "Координаты окружностей, у которых радиус больше среднего:" + end;
 	for (auto c : data) {         //вычисление окружностей, у которых радиус больше среднего
-		if (average < c.GetR())
-			file->Write("     X: " + c.GetX() + " Y: " + c.GetY() + "\r\n");
-	} file->Close();
-	//записывает результат записи в текстовой файл
-	StreamReader^ file1 = File::OpenText("Text.txt");
-	text_editor->Text = file1->ReadToEnd();
-	file1->Close();
+		if (average < c.GetR())  text_editor->Text = "     X: " + c.GetX() + " Y: " + c.GetY() + end;
+	}
 }
 Void Result::button1_Click_1(System::Object^ sender, System::EventArgs^ e) { // При нажатии на кнопку сохранить
 	saveFileDialog1->DefaultExt = "txt";                                    //выстовляется по умолчанию формат файла txt

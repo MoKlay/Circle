@@ -22,74 +22,36 @@ namespace Окружность {
 			if (components) delete components;
 		}
 	private: System::Windows::Forms::OpenFileDialog^ openFile;
-	protected:
-
-	protected:
-
 	private: System::Windows::Forms::SaveFileDialog^ saveFile;
 	private: System::Windows::Forms::Timer^ timer;
-	protected:
-
-
-	protected:
-
-
-
 	private: System::Windows::Forms::Label^ directory;
 
-	private: System::Windows::Forms::Label^ email;
-	private: System::Windows::Forms::Label^ name;
+
 	private: System::Windows::Forms::Button^ result;
 	private: System::Windows::Forms::Panel^ data_panel;
-	private: System::Windows::Forms::Label^ RR;
-
-
-
-
-
-	private: System::Windows::Forms::Label^ YY;
-
-
-	private: System::Windows::Forms::Label^ XX;
 
 
 
 	private: System::Windows::Forms::TextBox^ dataR;
 	private: System::Windows::Forms::TextBox^ dataY;
 	private: System::Windows::Forms::TextBox^ dataX;
-	private: System::Windows::Forms::PictureBox^ logo;
-
 
 	private: System::Windows::Forms::ListBox^ listX;
 	private: System::Windows::Forms::ListBox^ listY;
 	private: System::Windows::Forms::ListBox^ listR;
 	private: System::Windows::Forms::Button^ add;
-
 	private: System::Windows::Forms::Button^ deletebutton;
-
-
 	private: System::Windows::Forms::Button^ clear;
-
-
 	private: System::Windows::Forms::Button^ load;
-
-
 	private: System::Windows::Forms::Button^ save;
 	private: System::Windows::Forms::Panel^ title_Panel;
-
-
-
-
-
-
 	private: System::Windows::Forms::Label^ close;
 	private: System::Windows::Forms::NumericUpDown^ index_num;
 	private: System::Windows::Forms::Panel^ delete_Panel;
-	private: System::Windows::Forms::Label^ index;
+
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
 	private: System::Windows::Forms::Button^ back;
 	private: System::Windows::Forms::Label^ label1;
-
 	private: System::ComponentModel::IContainer^ components;
 
 
@@ -98,23 +60,24 @@ namespace Окружность {
 		{
 			this->components = (gcnew System::ComponentModel::Container());
 			System::Windows::Forms::Label^ title;
+			System::Windows::Forms::Label^ email;
+			System::Windows::Forms::Label^ name;
+			System::Windows::Forms::Label^ XX;
+			System::Windows::Forms::Label^ YY;
+			System::Windows::Forms::Label^ RR;
+			System::Windows::Forms::PictureBox^ logo;
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Main::typeid));
+			System::Windows::Forms::Label^ index;
 			this->close = (gcnew System::Windows::Forms::Label());
 			this->openFile = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->saveFile = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->timer = (gcnew System::Windows::Forms::Timer(this->components));
 			this->directory = (gcnew System::Windows::Forms::Label());
-			this->email = (gcnew System::Windows::Forms::Label());
-			this->name = (gcnew System::Windows::Forms::Label());
 			this->result = (gcnew System::Windows::Forms::Button());
 			this->data_panel = (gcnew System::Windows::Forms::Panel());
 			this->dataR = (gcnew System::Windows::Forms::TextBox());
 			this->dataY = (gcnew System::Windows::Forms::TextBox());
 			this->dataX = (gcnew System::Windows::Forms::TextBox());
-			this->XX = (gcnew System::Windows::Forms::Label());
-			this->YY = (gcnew System::Windows::Forms::Label());
-			this->RR = (gcnew System::Windows::Forms::Label());
-			this->logo = (gcnew System::Windows::Forms::PictureBox());
 			this->listX = (gcnew System::Windows::Forms::ListBox());
 			this->listY = (gcnew System::Windows::Forms::ListBox());
 			this->listR = (gcnew System::Windows::Forms::ListBox());
@@ -127,12 +90,18 @@ namespace Окружность {
 			this->save = (gcnew System::Windows::Forms::Button());
 			this->index_num = (gcnew System::Windows::Forms::NumericUpDown());
 			this->delete_Panel = (gcnew System::Windows::Forms::Panel());
-			this->index = (gcnew System::Windows::Forms::Label());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->back = (gcnew System::Windows::Forms::Button());
 			title = (gcnew System::Windows::Forms::Label());
+			email = (gcnew System::Windows::Forms::Label());
+			name = (gcnew System::Windows::Forms::Label());
+			XX = (gcnew System::Windows::Forms::Label());
+			YY = (gcnew System::Windows::Forms::Label());
+			RR = (gcnew System::Windows::Forms::Label());
+			logo = (gcnew System::Windows::Forms::PictureBox());
+			index = (gcnew System::Windows::Forms::Label());
 			this->data_panel->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(logo))->BeginInit();
 			this->title_Panel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->index_num))->BeginInit();
 			this->delete_Panel->SuspendLayout();
@@ -191,29 +160,29 @@ namespace Окружность {
 			// 
 			// email
 			// 
-			this->email->AutoSize = true;
-			this->email->BackColor = System::Drawing::Color::Transparent;
-			this->email->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			email->AutoSize = true;
+			email->BackColor = System::Drawing::Color::Transparent;
+			email->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->email->ForeColor = System::Drawing::SystemColors::Window;
-			this->email->Location = System::Drawing::Point(442, 336);
-			this->email->Name = L"email";
-			this->email->Size = System::Drawing::Size(113, 14);
-			this->email->TabIndex = 55;
-			this->email->Text = L"umdari68@gmail.com\r\n";
+			email->ForeColor = System::Drawing::SystemColors::Window;
+			email->Location = System::Drawing::Point(442, 336);
+			email->Name = L"email";
+			email->Size = System::Drawing::Size(113, 14);
+			email->TabIndex = 55;
+			email->Text = L"umdari68@gmail.com\r\n";
 			// 
 			// name
 			// 
-			this->name->AutoSize = true;
-			this->name->BackColor = System::Drawing::Color::Transparent;
-			this->name->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			name->AutoSize = true;
+			name->BackColor = System::Drawing::Color::Transparent;
+			name->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->name->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->name->Location = System::Drawing::Point(10, 336);
-			this->name->Name = L"name";
-			this->name->Size = System::Drawing::Size(88, 14);
-			this->name->TabIndex = 54;
-			this->name->Text = L"Цыренов Чингис";
+			name->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			name->Location = System::Drawing::Point(10, 336);
+			name->Name = L"name";
+			name->Size = System::Drawing::Size(88, 14);
+			name->TabIndex = 54;
+			name->Text = L"Цыренов Чингис";
 			// 
 			// result
 			// 
@@ -235,9 +204,9 @@ namespace Окружность {
 			this->data_panel->Controls->Add(this->dataR);
 			this->data_panel->Controls->Add(this->dataY);
 			this->data_panel->Controls->Add(this->dataX);
-			this->data_panel->Controls->Add(this->XX);
-			this->data_panel->Controls->Add(this->YY);
-			this->data_panel->Controls->Add(this->RR);
+			this->data_panel->Controls->Add(XX);
+			this->data_panel->Controls->Add(YY);
+			this->data_panel->Controls->Add(RR);
 			this->data_panel->Location = System::Drawing::Point(130, 267);
 			this->data_panel->Name = L"data_panel";
 			this->data_panel->Size = System::Drawing::Size(300, 40);
@@ -278,49 +247,49 @@ namespace Окружность {
 			// 
 			// XX
 			// 
-			this->XX->AutoSize = true;
-			this->XX->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			XX->AutoSize = true;
+			XX->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->XX->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->XX->Location = System::Drawing::Point(38, 5);
-			this->XX->Name = L"XX";
-			this->XX->Size = System::Drawing::Size(14, 13);
-			this->XX->TabIndex = 44;
-			this->XX->Text = L"X";
+			XX->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			XX->Location = System::Drawing::Point(38, 5);
+			XX->Name = L"XX";
+			XX->Size = System::Drawing::Size(14, 13);
+			XX->TabIndex = 44;
+			XX->Text = L"X";
 			// 
 			// YY
 			// 
-			this->YY->AutoSize = true;
-			this->YY->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			YY->AutoSize = true;
+			YY->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->YY->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->YY->Location = System::Drawing::Point(143, 5);
-			this->YY->Name = L"YY";
-			this->YY->Size = System::Drawing::Size(15, 13);
-			this->YY->TabIndex = 45;
-			this->YY->Text = L"Y";
+			YY->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			YY->Location = System::Drawing::Point(143, 5);
+			YY->Name = L"YY";
+			YY->Size = System::Drawing::Size(15, 13);
+			YY->TabIndex = 45;
+			YY->Text = L"Y";
 			// 
 			// RR
 			// 
-			this->RR->AutoSize = true;
-			this->RR->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			RR->AutoSize = true;
+			RR->Font = (gcnew System::Drawing::Font(L"Times New Roman", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->RR->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->RR->Location = System::Drawing::Point(248, 5);
-			this->RR->Name = L"RR";
-			this->RR->Size = System::Drawing::Size(15, 13);
-			this->RR->TabIndex = 46;
-			this->RR->Text = L"R";
+			RR->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			RR->Location = System::Drawing::Point(248, 5);
+			RR->Name = L"RR";
+			RR->Size = System::Drawing::Size(15, 13);
+			RR->TabIndex = 46;
+			RR->Text = L"R";
 			// 
 			// logo
 			// 
-			this->logo->BackColor = System::Drawing::Color::Transparent;
-			this->logo->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logo.Image")));
-			this->logo->Location = System::Drawing::Point(0, 0);
-			this->logo->Name = L"logo";
-			this->logo->Size = System::Drawing::Size(50, 50);
-			this->logo->TabIndex = 60;
-			this->logo->TabStop = false;
+			logo->BackColor = System::Drawing::Color::Transparent;
+			logo->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logo.Image")));
+			logo->Location = System::Drawing::Point(0, 0);
+			logo->Name = L"logo";
+			logo->Size = System::Drawing::Size(50, 50);
+			logo->TabIndex = 60;
+			logo->TabStop = false;
 			// 
 			// listX
 			// 
@@ -487,7 +456,7 @@ namespace Окружность {
 			// delete_Panel
 			// 
 			this->delete_Panel->BackColor = System::Drawing::Color::Transparent;
-			this->delete_Panel->Controls->Add(this->index);
+			this->delete_Panel->Controls->Add(index);
 			this->delete_Panel->Controls->Add(this->index_num);
 			this->delete_Panel->Location = System::Drawing::Point(3, 73);
 			this->delete_Panel->Name = L"delete_Panel";
@@ -497,13 +466,13 @@ namespace Окружность {
 			// 
 			// index
 			// 
-			this->index->AutoSize = true;
-			this->index->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->index->Location = System::Drawing::Point(0, 0);
-			this->index->Name = L"index";
-			this->index->Size = System::Drawing::Size(95, 13);
-			this->index->TabIndex = 77;
-			this->index->Text = L"Индекс удаления";
+			index->AutoSize = true;
+			index->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			index->Location = System::Drawing::Point(0, 0);
+			index->Name = L"index";
+			index->Size = System::Drawing::Size(95, 13);
+			index->TabIndex = 77;
+			index->Text = L"Индекс удаления";
 			// 
 			// flowLayoutPanel1
 			// 
@@ -551,9 +520,9 @@ namespace Окружность {
 			this->Controls->Add(this->listR);
 			this->Controls->Add(this->listY);
 			this->Controls->Add(this->listX);
-			this->Controls->Add(this->logo);
-			this->Controls->Add(this->email);
-			this->Controls->Add(this->name);
+			this->Controls->Add(logo);
+			this->Controls->Add(email);
+			this->Controls->Add(name);
 			this->Controls->Add(this->result);
 			this->Controls->Add(this->data_panel);
 			this->Controls->Add(title);
@@ -567,7 +536,7 @@ namespace Окружность {
 			this->Click += gcnew System::EventHandler(this, &Main::Main_Click);
 			this->data_panel->ResumeLayout(false);
 			this->data_panel->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(logo))->EndInit();
 			this->title_Panel->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->index_num))->EndInit();
 			this->delete_Panel->ResumeLayout(false);

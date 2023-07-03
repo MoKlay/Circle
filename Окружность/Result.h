@@ -22,61 +22,15 @@ namespace Окружность {
 		}
 	private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 	private: System::Windows::Forms::Label^ close;
-
-
-
-
-
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem1;
 	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem2;
 	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem3;
-
-
-
-
-
-
-
 	private: System::Windows::Forms::PictureBox^ logo;
 	private: System::Windows::Forms::TextBox^ text_editor;
 
-	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::ComponentModel::IContainer^ components;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region Windows Form Designer generated code
 		   void InitializeComponent() {
@@ -90,7 +44,6 @@ namespace Окружность {
 			   this->toolStripMenuItem3 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			   this->logo = (gcnew System::Windows::Forms::PictureBox());
 			   this->text_editor = (gcnew System::Windows::Forms::TextBox());
-			   this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			   this->panel1->SuspendLayout();
 			   this->menuStrip1->SuspendLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo))->BeginInit();
@@ -182,14 +135,6 @@ namespace Окружность {
 			   this->text_editor->Size = System::Drawing::Size(456, 252);
 			   this->text_editor->TabIndex = 62;
 			   // 
-			   // textBox1
-			   // 
-			   this->textBox1->Location = System::Drawing::Point(700, 198);
-			   this->textBox1->Multiline = true;
-			   this->textBox1->Name = L"textBox1";
-			   this->textBox1->Size = System::Drawing::Size(0, 0);
-			   this->textBox1->TabIndex = 63;
-			   // 
 			   // Result
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -199,7 +144,6 @@ namespace Окружность {
 			   this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			   this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			   this->ClientSize = System::Drawing::Size(480, 300);
-			   this->Controls->Add(this->textBox1);
 			   this->Controls->Add(this->text_editor);
 			   this->Controls->Add(this->logo);
 			   this->Controls->Add(this->panel1);
