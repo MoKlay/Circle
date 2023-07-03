@@ -64,9 +64,6 @@
     <Text Include="..\README.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
-    <Text Include="Text.txt">
-      <Filter>Файлы ресурсов</Filter>
-    </Text>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Окружность.rc">

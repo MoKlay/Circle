@@ -71,7 +71,6 @@
     <Text Include="..\README.txt">
       <DeploymentContent>true</DeploymentContent>
     </Text>
-    <Text Include="Text.txt" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Окружность.rc" />

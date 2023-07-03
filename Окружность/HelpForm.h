@@ -85,6 +85,7 @@ namespace Окружность {
 			// textBox1
 			// 
 			this->textBox1->BackColor = System::Drawing::Color::White;
+			this->textBox1->Enabled = false;
 			this->textBox1->Location = System::Drawing::Point(0, 0);
 			this->textBox1->Multiline = true;
 			this->textBox1->Name = L"textBox1";
@@ -118,6 +119,7 @@ namespace Окружность {
 			// textBox2
 			// 
 			this->textBox2->BackColor = System::Drawing::Color::White;
+			this->textBox2->Enabled = false;
 			this->textBox2->Location = System::Drawing::Point(0, 0);
 			this->textBox2->Multiline = true;
 			this->textBox2->Name = L"textBox2";
@@ -146,6 +148,7 @@ namespace Окружность {
 			this->tabPage2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->ResumeLayout(false);
+
 		}
 #pragma endregion
 	};
