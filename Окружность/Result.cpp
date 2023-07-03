@@ -1,7 +1,7 @@
 #include "Result.h"
 #include "Fields.h"
 
-#define end "/r/n"
+#define end "\r\n"
 
 using namespace System;
 using namespace Окружность;
@@ -12,7 +12,7 @@ Void Result::Result_Shown(System::Object^ sender, System::EventArgs^ e) { //При 
 	for (auto c : data) { average += c.GetR(); }                        //прибовляются все радиусы окружностей
 	average /= 10;                                                     // и делится на их количество
 	text_editor->Text = "Среднее значение радиуса: " + Convert::ToString(average) + end;
-	text_editor->Text = "Координаты окружностей, у которых радиус больше среднего:" + end;
+	text_editor->Text += "Координаты окружностей, у которых радиус больше среднего:" + end;
 	for (auto c : data) {         //вычисление окружностей, у которых радиус больше среднего
 		if (average < c.GetR())  text_editor->Text = "     X: " + c.GetX() + " Y: " + c.GetY() + end;
 	}
